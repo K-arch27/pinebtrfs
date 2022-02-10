@@ -1,2 +1,2 @@
-# pinebtrfs
-Making Btrfs Root on Pinephone
+# PineBtrfs
+## Making Btrfs Root on Pinephone
