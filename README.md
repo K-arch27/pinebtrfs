@@ -50,6 +50,7 @@ we have to extract our root filesystem back in
 Delete old and Generate New Fstab file
 
 > rm /mnt/@/etc/fstab
+
 > genfstab -U /mnt >> /mnt/@/etc/fstab
 
 Verify that everything is right inside it
