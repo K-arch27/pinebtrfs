@@ -20,7 +20,7 @@ mount it and backup the filesystem
 
 >mount /dev/MYDEVICEBOOT -o ro /mnt/boot
 
-then zip it in the wirking directory :
+then zip it in the working directory :
 
 > tar -C /mnt --acls --xattrs -cf root_backup.tar .
 
