@@ -3,6 +3,7 @@
 This guide assume you have access to a linux pc with a card reader
 (but could be done directly from the phone if you have access to another OS )
 Only tested with Arch Phosh but should work with any distro
+All Commands Need sudo rights
 
 ### --- Step 1 ---
 Start By flashing/Installing the OS you want in your prefered method onto the SD card
@@ -12,6 +13,7 @@ Start By flashing/Installing the OS you want in your prefered method onto the SD
 mount it and backup the filesystem
 
 >mount /dev/MYDEVICEROOT -o ro /mnt
+
 >mount /dev/MYDEVICEBOOT -o ro /mnt/boot
 
 then zip it in the wirking directory :
