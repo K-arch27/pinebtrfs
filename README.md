@@ -11,12 +11,12 @@ Start By flashing/Installing the OS you want in your prefered method onto the SD
 
 mount it and backup the filesystem
 
-># mount /dev/MYDEVICEROOT -o ro /mnt
-># mount /dev/MYDEVICEBOOT -o ro /mnt/boot
+>mount /dev/MYDEVICEROOT -o ro /mnt
+>mount /dev/MYDEVICEBOOT -o ro /mnt/boot
 
 then zip it in the wirking directory :
 
-># tar -C /mnt --acls --xattrs -cf root_backup.tar .
+> tar -C /mnt --acls --xattrs -cf root_backup.tar .
 
 ### --- Step 3 ---
 
@@ -37,14 +37,14 @@ If you know how go ahead , otherwise a very basic layout can be made using the i
 After being done with the layount and mounting everything back (or executing the included script PineBtrfs.sh)
 we have to extract our root filesystem back in
 
-># tar -xvf BACKUPLOCATION/root_backup.tar --acls --xattrs --numeric-owner
+> tar -xvf BACKUPLOCATION/root_backup.tar --acls --xattrs --numeric-owner
 
 ### --- Step 6 ---
 
 Delete old and Generate New Fstab file
 
-># rm /mnt/@/etc/fstab
-># genfstab -U /mnt >> /mnt/@/etc/fstab
+> rm /mnt/@/etc/fstab
+> genfstab -U /mnt >> /mnt/@/etc/fstab
 
 Verify that everything is right inside it
 
