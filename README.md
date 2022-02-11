@@ -70,7 +70,7 @@ setenv bootargs loglevel=4 console=tty0 root=/dev/mmcblk${linux_mmcdev}p${rootpa
 
 Then execute 
 
->mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" -d /mnt/@/boot.txt /mnt/@/boot.scr
+# mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" -d /mnt/@/boot.txt /mnt/@/boot.scr
 ```
 
 ### --- Step 8 ---
