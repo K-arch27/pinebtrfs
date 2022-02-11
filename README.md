@@ -54,10 +54,10 @@ Go inside /mnt/@//boot/
 figure out how your distro set up Uboot Environnements
 and add the following to it : 
 
-
 rootfstype=btrfs
 extraargs=rootflags=subvol=@
 
+```
 (for arch we use the boot.txt file and add it to this line : 
 
 setenv bootargs loglevel=4 console=tty0 root=/dev/mmcblk${linux_mmcdev}p${rootpart} console=ttyS2,1500000 rw rootwait quiet bootsplash.bootfile=bootsplash-themes/danctnix/bootsplash
@@ -71,7 +71,7 @@ setenv bootargs loglevel=4 console=tty0 root=/dev/mmcblk${linux_mmcdev}p${rootpa
 Then execute 
 
 >mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" -d /mnt/@/boot.txt /mnt/@/boot.scr
-
+```
 
 ### --- Step 8 ---
 
