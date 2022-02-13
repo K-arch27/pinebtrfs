@@ -57,7 +57,7 @@ Verify that everything is right inside it
 
 ### --- Step 7 ---
 
-Go inside /mnt/@//boot/
+Go inside /mnt/@/boot/
 figure out how your distro set up Uboot Environnements
 and add the following to it : 
 
