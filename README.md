@@ -82,3 +82,4 @@ Then execute
 ### --- Step 8 ---
 
 Test it out
+Run phone.sh on the phone itself after booting to configure snapper
