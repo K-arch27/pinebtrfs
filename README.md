@@ -49,20 +49,19 @@ we have to extract our root filesystem back in
 
 Delete old and Generate New Fstab file
 
-> rm /mnt/@/etc/fstab
+> rm /mnt/etc/fstab
 
-> genfstab -U /mnt >> /mnt/@/etc/fstab
+> genfstab -U /mnt >> /mnt/etc/fstab
 
-Verify that everything is right inside it
+Verify that everything is right inside it and remove the target subvolume from the root entry
 
 ### --- Step 7 ---
 
-Go inside /mnt/@/boot/
+Go inside /mnt/boot/
 figure out how your distro set up Uboot Environnements
 and add the following to it : 
 
 rootfstype=btrfs
-extraargs=rootflags=subvol=@
 
 ```
 (for arch we use the boot.txt file and add it to this line : 
@@ -72,7 +71,7 @@ setenv bootargs loglevel=4 console=tty0 root=/dev/mmcblk${linux_mmcdev}p${rootpa
 
 to make : 
 
-setenv bootargs loglevel=4 console=tty0 root=/dev/mmcblk${linux_mmcdev}p${rootpart} console=ttyS2,1500000 rw rootwait rootfstype=btrfs extraargs=rootflags=subvol=@ quiet bootsplash.bootfile=bootsplash-themes/danctnix/bootsplash
+setenv bootargs loglevel=4 console=tty0 root=/dev/mmcblk${linux_mmcdev}p${rootpart} console=ttyS2,1500000 rw rootwait rootfstype=btrfs quiet bootsplash.bootfile=bootsplash-themes/danctnix/bootsplash
 
 
 Then execute 
