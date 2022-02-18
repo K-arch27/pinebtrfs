@@ -40,7 +40,7 @@ If you know how go ahead , otherwise a very basic layout can be made using the i
 
 ### --- Step 5 ---
 
-After being done with the layount and mounting everything back (or executing the included script PineBtrfs.sh)
+After being done with the layout and mounting everything back (or executing the included script PineBtrfs.sh)
 we have to extract our root filesystem back in
 
 > tar -xvf BACKUPLOCATION/root_backup.tar --acls --xattrs --numeric-owner
