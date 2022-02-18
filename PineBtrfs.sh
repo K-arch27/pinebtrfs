@@ -14,7 +14,7 @@
     lsblk
     echo -ne "Carefull all data on this partition is going to be deleted"
     read -p "Please enter your Root partition : /dev/" partition2
-    mkfs.btrfs -L ROOT -m single -f /dev/$partition2
+    mkfs.btrfs -L PINEROOT -m single -f /dev/$partition2
     ROOTUUID=$(blkid -o value -s UUID /dev/$partition2)
     clear
 
@@ -29,7 +29,6 @@
 	mkdir /mnt/@/.snapshots/1
 	btrfs subvolume create /mnt/@/.snapshots/1/snapshot
 	mkdir /mnt/@/boot
-	btrfs subvolume create /mnt/@/boot/grub
 	btrfs subvolume create /mnt/@/opt
 	btrfs subvolume create /mnt/@/root
 	btrfs subvolume create /mnt/@/srv
@@ -60,7 +59,6 @@
 # make directories home, .snapshots, var, tmp
 
 	mkdir /mnt/.snapshots
-	mkdir -p /mnt/boot/grub
 	mkdir /mnt/opt
 	mkdir /mnt/root
 	mkdir /mnt/srv
@@ -91,6 +89,6 @@
     
 
 	
-echo -ne "done Extract your RootFs inside /mnt/@/"
+echo -ne "done Extract your RootFs inside /mnt"
 
 
