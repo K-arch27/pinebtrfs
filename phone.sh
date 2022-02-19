@@ -1,4 +1,9 @@
 #to be run on the phone after booting on it
+  clear
+  lsblk
+  read -p "Please enter your Root partition : /dev/" partition2
+  ROOTUUID=$(blkid -o value -s UUID /dev/$partition2)
+  clear
 
 pacman -Syyu
 pacman -S snapper
@@ -28,6 +33,7 @@ sed -i 's|TIMELINE_LIMIT_YEARLY="10"|TIMELINE_LIMIT_YEARLY="0"|' /etc/snapper/co
 
 
 #Enable cleanup
-
+SCRUB=$(systemd-escape --template btrfs-scrub@.timer --path /dev/disk/by-uuid/${ROOTUUID})
+systemctl enable --now ${SCRUB}
 systemctl enable snapper-timeline.timer
 systemctl enable snapper-cleanup.timer
