@@ -9,7 +9,7 @@ All Commands Need sudo rights
 
 ```
 ### --- Step 0 ---
-For those wanting to try it out before , I made an image to be flashed on the pinephone pro
+For those wanting to try it out before , I made an image of Arch-phosh to be flashed on the pinephone pro
 
 https://mega.nz/file/XXAlFAwA#5Z__bfYPSBEEK5aCjvJzf8JHushd0sK-leZzQcaKgT0
 
