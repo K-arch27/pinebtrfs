@@ -8,6 +8,12 @@ Only tested with Arch Phosh but should work with any distro
 All Commands Need sudo rights
 
 ```
+### --- Step 0 ---
+For those wanting to try it out before , I made an image to be flashed on the pinephone pro
+
+https://mega.nz/file/XXAlFAwA#5Z__bfYPSBEEK5aCjvJzf8JHushd0sK-leZzQcaKgT0
+
+You just have to flash it and skip to Step 8
 
 ### --- Step 1 ---
 Start By flashing/Installing the OS you want in your prefered method onto the SD card
