@@ -1,12 +1,14 @@
 #to be run on the phone after booting on it
-  clear
-  lsblk
-  read -p "Please enter your Root partition : /dev/" partition2
-  ROOTUUID=$(blkid -o value -s UUID /dev/$partition2)
-  clear
-
-pacman -Syyu
-pacman -S snapper
+clear
+lsblk
+read -p "Please enter your Root partition : /dev/" partition2
+ROOTUUID=$(blkid -o value -s UUID /dev/$partition2)
+clear
+pacman-key --init
+pacman-key --populate
+pacman-key --refresh-keys
+pacman -Syyu --noconfirm
+pacman -S snapper --noconfirm
 
 
 umount /.snapshots
@@ -37,3 +39,6 @@ SCRUB=$(systemd-escape --template btrfs-scrub@.timer --path /dev/disk/by-uuid/${
 systemctl enable --now ${SCRUB}
 systemctl enable snapper-timeline.timer
 systemctl enable snapper-cleanup.timer
+
+clear
+
