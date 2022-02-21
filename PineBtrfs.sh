@@ -68,7 +68,7 @@
 	mkdir /mnt/var/log
 	mkdir /mnt/var/spool
 	mkdir /mnt/var/tmp
-	mkdir /mnt/boot/ESP
+	mkdir /mnt/boot
 	mkdir /mnt/home
 
 
