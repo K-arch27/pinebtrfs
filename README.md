@@ -12,6 +12,7 @@ All Commands Need sudo rights
 
 ### --- Step 1 ---
 Start By flashing/Installing the OS you want in your prefered method onto the SD card
+and do the initial setup on the phone (good time to update it too)
 
 ### --- Step 2 ---
 
