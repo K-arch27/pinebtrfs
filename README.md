@@ -36,9 +36,8 @@ then zip it in the working directory :
 ### --- Step 3 ---
 
 Unmount it and run fdisk or another partitionning tools to make new partition
-We need 1 partition of atleast 320MB for the boot and another one with the space left for the Root
+We need 1 partition of atleast 320MB for the boot and another one with the space left for the Root or separate it with a home partition as you wish
 
-(guide will be updated later on for separate Home partition)
 
 ### --- Step 4 ---
 
