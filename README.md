@@ -96,4 +96,5 @@ Then execute
 ### --- Step 8 ---
 
 Test it out
-Run phone.sh on the phone itself after booting to configure snapper
+
+You can run phone.sh on the phone itself after booting to automatically install and configure snapper for you 
