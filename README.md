@@ -1,5 +1,10 @@
 # PineBtrfs
-## Making Btrfs Root on Pinephone Pro
+## Btrfs Root on Pinephone Pro
+
+
+### Arch image can be found in Release (based on danct12 Arch image for the PPP)
+
+## --- Doing it yourself ---
 
 ```
 This guide assume you have access to a linux pc with a card reader
@@ -8,7 +13,6 @@ Only tested with Arch but should work with any distro
 All Commands Need sudo rights
 
 ```
-
 
 ### --- Step 1 ---
 Start By flashing/Installing the OS you want in your prefered method onto the SD card
