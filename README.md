@@ -1,5 +1,5 @@
 # PineBtrfs
-## Making Btrfs Root on Pinephone
+## Making Btrfs Root on Pinephone Pro
 
 ```
 This guide assume you have access to a linux pc with a card reader
