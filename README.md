@@ -81,21 +81,21 @@ and add the following to it :
 
 rootfstype=btrfs
 
-```
+
 (for arch we use the boot.txt file and add it to this line : 
-
+```
 setenv bootargs loglevel=4 console=tty0 root=/dev/mmcblk${linux_mmcdev}p${rootpart} console=ttyS2,1500000 rw rootwait quiet bootsplash.bootfile=bootsplash-themes/danctnix/bootsplash
-
+```
 
 to make : 
-
+```
 setenv bootargs loglevel=4 console=tty0 root=/dev/mmcblk${linux_mmcdev}p${rootpart} console=ttyS2,1500000 rw rootfstype=btrfs rootwait quiet bootsplash.bootfile=bootsplash-themes/danctnix/bootsplash
-
+```
 
 Then execute 
 
-# mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" -d /mnt/@/boot.txt /mnt/@/boot.scr
-```
+> mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" -d /mnt/@/boot.txt /mnt/@/boot.scr
+
 
 ### --- Step 8 ---
 
