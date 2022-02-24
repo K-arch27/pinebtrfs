@@ -2,7 +2,7 @@
 ## Btrfs Root on Pinephone Pro
 
 
-### Arch image can be found in Release (based on danct12 Arch image for the PPP)
+### Arch image can be found in Release (based on danct12 Arch image for the PPP) (currently uploading)
 
 ## --- Doing it yourself ---
 
