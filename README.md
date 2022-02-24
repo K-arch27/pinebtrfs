@@ -14,7 +14,10 @@ All Commands Need sudo rights
 Start By flashing/Installing the OS you want in your prefered method onto the SD card
 and do the initial setup on the phone (good time to update it too)
 
+remove fsck hook in /etc/mkinitcpio.conf if any
+
 ### --- Step 2 ---
+Get the SD card in your computer ( or boot another system on your phone )
 
 mount it and backup the filesystem
 
@@ -29,33 +32,42 @@ then zip it in the working directory :
 ### --- Step 3 ---
 
 Unmount it and run fdisk or another partitionning tools to make new partition
-We need 1 partition of 512MB for the boot and another one with the space left for the Root
+We need 1 partition of atleast 320MB for the boot and another one with the space left for the Root
 
 (guide will be updated later on for separate Home partition)
 
 ### --- Step 4 ---
 
-We need to format our root as btrfs and our boot as Ext4
+We need to format our root as btrfs, our boot as Ext4 and home as what you prefer
 and then make our btrfs subvolumes and mountpoints
 
-If you know how go ahead , otherwise a very basic layout can be made using the included PineBtrfs.sh
+If you know how go ahead , otherwise a basic layout can be made using the included PineBtrfs.sh script wich is compatible with snapper and rollback
 
 ### --- Step 5 ---
 
 After being done with the layout and mounting everything back (or executing the included script PineBtrfs.sh)
-we have to extract our root filesystem back in
+we have to extract our root filesystem back in the /mnt directory
 
+> cd /mnt
 > tar -xvf BACKUPLOCATION/root_backup.tar --acls --xattrs --numeric-owner
 
 ### --- Step 6 ---
 
-Delete old and Generate New Fstab file
+Generate New Fstab file
 
-> rm /mnt/etc/fstab
+> genfstab -U /mnt > /mnt/etc/fstab
 
-> genfstab -U /mnt >> /mnt/etc/fstab
+Verify that everything is right inside it 
 
-Verify that everything is right inside it and remove the target subvolume from the root entry
+If you use the Pinebtrfs.sh script remove the target subvolume from the root entry 
+so the line look like that :
+
+
+```
+UUID=YOURUUID	/         	btrfs     	rw,relatime,compress=zstd:3,space_cache=v2	0 0
+
+```
+so that we are able to boot on a different snapshots if we rollback
 
 ### --- Step 7 ---
 
@@ -73,7 +85,7 @@ setenv bootargs loglevel=4 console=tty0 root=/dev/mmcblk${linux_mmcdev}p${rootpa
 
 to make : 
 
-setenv bootargs loglevel=4 console=tty0 root=/dev/mmcblk${linux_mmcdev}p${rootpart} console=ttyS2,1500000 rw rootwait rootfstype=btrfs quiet bootsplash.bootfile=bootsplash-themes/danctnix/bootsplash
+setenv bootargs loglevel=4 console=tty0 root=/dev/mmcblk${linux_mmcdev}p${rootpart} console=ttyS2,1500000 rw rootfstype=btrfs rootwait quiet bootsplash.bootfile=bootsplash-themes/danctnix/bootsplash
 
 
 Then execute 
