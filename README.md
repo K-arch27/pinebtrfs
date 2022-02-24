@@ -2,7 +2,8 @@
 ## Btrfs Root on Pinephone Pro
 
 
-### Arch image can be found in Release (based on danct12 Arch image for the PPP)
+### Arch image ready to be flashed and use can be found in Release (based on danct12 Arch image for the PPP)
+You can run phone.sh on the phone itself after booting to automatically install and configure snapper for you
 
 ## --- Doing it yourself ---
 
@@ -101,4 +102,4 @@ Then execute
 
 Test it out
 
-You can run phone.sh on the phone itself after booting to automatically install and configure snapper for you 
+You can now run phone.sh on the phone itself after booting to automatically install and configure snapper for you 
