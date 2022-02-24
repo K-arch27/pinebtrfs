@@ -4,9 +4,6 @@ lsblk
 read -p "Please enter your Root partition : /dev/" partition2
 ROOTUUID=$(blkid -o value -s UUID /dev/$partition2)
 clear
-pacman-key --init
-pacman-key --populate
-pacman-key --refresh-keys
 pacman -Syyu --noconfirm
 pacman -S snapper --noconfirm
 
