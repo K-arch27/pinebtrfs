@@ -4,7 +4,7 @@
 ```
 This guide assume you have access to a linux pc with a card reader
 (but could be done directly from the phone if you have access to another OS )
-Only tested with Arch Phosh but should work with any distro
+Only tested with Arch but should work with any distro
 All Commands Need sudo rights
 
 ```
