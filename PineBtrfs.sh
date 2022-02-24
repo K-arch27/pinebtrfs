@@ -90,6 +90,7 @@ Carefull all data on this partition is going to be deleted
     
 
 	
-echo -ne "done Extract your RootFs inside /mnt"
+echo -ne "Done 
+Mount your Home partition in /mnt/home if you have one now and Extract your RootBackup inside /mnt"
 
 
