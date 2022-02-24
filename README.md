@@ -20,7 +20,7 @@ Start By flashing/Installing the OS you want with your prefered method onto the 
 and do the initial setup on the phone (good time to update it too) and install the relevant btrfs package for your distribution
 
 remove fsck hook in /etc/mkinitcpio.conf if any
-
+and regenerate the initramfs
 
 ### --- Step 2 ---
 Get the SD card in your computer ( or boot another system on your phone )
