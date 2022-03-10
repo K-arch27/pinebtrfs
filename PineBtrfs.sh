@@ -69,7 +69,6 @@ Carefull all data on this partition is going to be deleted
 	mkdir /mnt/var/spool
 	mkdir /mnt/var/tmp
 	mkdir /mnt/boot
-	mkdir /mnt/home
 
 
 # mount subvolumes and partition
@@ -88,6 +87,6 @@ Carefull all data on this partition is going to be deleted
 
 	
 echo -ne "Done 
-Mount your Home partition in /mnt/home if you have one now and Extract your RootBackup inside /mnt"
+ Extract your RootBackup inside /mnt"
 
 
