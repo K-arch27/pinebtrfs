@@ -31,7 +31,6 @@ Carefull all data on this partition is going to be deleted
 	mkdir /mnt/@/.snapshots/1
 	btrfs subvolume create /mnt/@/.snapshots/1/snapshot
 	mkdir /mnt/@/boot
-	btrfs subvolume create /mnt/@/opt
 	btrfs subvolume create /mnt/@/root
 	btrfs subvolume create /mnt/@/srv
 	btrfs subvolume create /mnt/@/tmp
@@ -61,7 +60,6 @@ Carefull all data on this partition is going to be deleted
 # make directories home, .snapshots, var, tmp
 
 	mkdir /mnt/.snapshots
-	mkdir /mnt/opt
 	mkdir /mnt/root
 	mkdir /mnt/srv
 	mkdir /mnt/tmp
@@ -77,7 +75,6 @@ Carefull all data on this partition is going to be deleted
 # mount subvolumes and partition
 
     mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/.snapshots /mnt/.snapshots
-    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/opt /mnt/opt
     mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/root /mnt/root
     mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/srv /mnt/srv
     mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/tmp /mnt/tmp
