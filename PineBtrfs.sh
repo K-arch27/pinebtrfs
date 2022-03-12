@@ -32,10 +32,9 @@ Carefull all data on this partition is going to be deleted
 	btrfs subvolume create /mnt/@/.snapshots/1/snapshot
 	mkdir /mnt/@/boot
 	btrfs subvolume create /mnt/@/root
+	btrfs subvolume create /mnt/@/MyData
 	btrfs subvolume create /mnt/@/srv
 	btrfs subvolume create /mnt/@/tmp
-	mkdir /mnt/@/usr
-	btrfs subvolume create /mnt/@/usr/local
 	mkdir /mnt/@/var
 	btrfs subvolume create /mnt/@/var/cache
 	btrfs subvolume create /mnt/@/var/log
@@ -50,7 +49,7 @@ Carefull all data on this partition is going to be deleted
 	chattr +C /mnt/@/var/log
 	chattr +C /mnt/@/var/spool
 	chattr +C /mnt/@/var/tmp
-
+	chattr +C /mnt/@/MyData
 # unmount root to remount with subvolume
     umount /mnt
 
@@ -61,9 +60,9 @@ Carefull all data on this partition is going to be deleted
 
 	mkdir /mnt/.snapshots
 	mkdir /mnt/root
+	mkdir /mnt/MyData
 	mkdir /mnt/srv
 	mkdir /mnt/tmp
-	mkdir -p /mnt/usr/local
 	mkdir -p /mnt/var/cache
 	mkdir /mnt/var/log
 	mkdir /mnt/var/spool
@@ -77,16 +76,16 @@ Carefull all data on this partition is going to be deleted
     mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/root /mnt/root
     mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/srv /mnt/srv
     mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/tmp /mnt/tmp
-    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/usr/local /mnt/usr/local
     mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/cache /mnt/var/cache
     mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/log,nodatacow /mnt/var/log
     mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/spool,nodatacow /mnt/var/spool
     mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/tmp,nodatacow /mnt/var/tmp
+    mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/MyData,nodatacow /mnt/var/tmp
     mount UUID=${BOOTUUID} /mnt/boot
     
 
 	
 echo -ne "Done 
- Extract your RootBackup inside /mnt"
+Mount your Home partition in /mnt/home if you have one now and Extract your RootBackup inside /mnt"
 
 
