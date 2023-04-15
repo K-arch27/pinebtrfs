@@ -17,7 +17,7 @@ All Commands Need sudo rights
 
 ### --- Step 1 ---
 Start By flashing/Installing the OS you want with your prefered method onto the SD card
-and do the initial setup on the phone (good time to update it too) and install the relevant btrfs package for your distribution
+and do the initial setup on the phone (good time to update it too) and install the relevant btrfs package for your distribution and add the btrfs module to the initramfs
 
 remove fsck hook in /etc/mkinitcpio.conf if any
 and regenerate the initramfs
