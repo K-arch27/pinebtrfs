@@ -8,7 +8,7 @@
 Carefull all data on this partition is going to be deleted
 -"
     read -p "Please enter your BOOT partition : /dev/" partition1
-    mkfs.fat -F32 -I -v /dev/$partition1
+    mkfs.ext4 -L PINEBOOT /dev/$partition1
     BOOTUUID=$(blkid -o value -s UUID /dev/$partition1)
     clear
     lsblk
