@@ -21,73 +21,73 @@ Carefull all data on this partition is going to be deleted
     clear
 
 
-   #Mounting Root on /mnt to create Btrfs Subvolumes
-    mount UUID=${ROOTUUID} /mnt
+   #Mounting Root on /install to create Btrfs Subvolumes
+    mount UUID=${ROOTUUID} /install
 
 
    
-    btrfs subvolume create /mnt/@
-	btrfs subvolume create /mnt/@/.snapshots
-	mkdir /mnt/@/.snapshots/1
-	btrfs subvolume create /mnt/@/.snapshots/1/snapshot
-	mkdir /mnt/@/boot
-	btrfs subvolume create /mnt/@/root
-	btrfs subvolume create /mnt/@/srv
-	btrfs subvolume create /mnt/@/tmp
-	mkdir /mnt/@/usr
-	btrfs subvolume create /mnt/@/usr/local
-	mkdir /mnt/@/var
-	btrfs subvolume create /mnt/@/var/cache
-	btrfs subvolume create /mnt/@/var/log
-	btrfs subvolume create /mnt/@/var/spool
-	btrfs subvolume create /mnt/@/var/tmp
+    btrfs subvolume create /install/@
+	btrfs subvolume create /install/@/.snapshots
+	mkdir /install/@/.snapshots/1
+	btrfs subvolume create /install/@/.snapshots/1/snapshot
+	mkdir /install/@/boot
+	btrfs subvolume create /install/@/root
+	btrfs subvolume create /install/@/srv
+	btrfs subvolume create /install/@/tmp
+	mkdir /install/@/usr
+	btrfs subvolume create /install/@/usr/local
+	mkdir /install/@/var
+	btrfs subvolume create /install/@/var/cache
+	btrfs subvolume create /install/@/var/log
+	btrfs subvolume create /install/@/var/spool
+	btrfs subvolume create /install/@/var/tmp
 	NOW=$(date +"%Y-%m-%d %H:%M:%S")
-	cp info.xml /mnt/@/.snapshots/1/info.xml
-	sed -i "s|2022-01-01 00:00:00|${NOW}|" /mnt/@/.snapshots/1/info.xml
-  	btrfs subvolume set-default $(btrfs subvolume list /mnt | grep "@/.snapshots/1/snapshot" | grep -oP '(?<=ID )[0-9]+') /mnt
-	btrfs quota enable /mnt
-	chattr +C /mnt/@/var/cache
-	chattr +C /mnt/@/var/log
-	chattr +C /mnt/@/var/spool
-	chattr +C /mnt/@/var/tmp
+	cp info.xml /install/@/.snapshots/1/info.xml
+	sed -i "s|2022-01-01 00:00:00|${NOW}|" /install/@/.snapshots/1/info.xml
+  	btrfs subvolume set-default $(btrfs subvolume list /install | grep "@/.snapshots/1/snapshot" | grep -oP '(?<=ID )[0-9]+') /install
+	btrfs quota enable /install
+	chattr +C /install/@/var/cache
+	chattr +C /install/@/var/log
+	chattr +C /install/@/var/spool
+	chattr +C /install/@/var/tmp
 
 # unmount root to remount with subvolume
-    umount /mnt
+    umount /install
 
 # mount @ subvolume
-    mount UUID=${ROOTUUID} -o compress=zstd /mnt
+    mount UUID=${ROOTUUID} -o compress=zstd /install
 
 # make directories home, .snapshots, var, tmp
 
-	mkdir /mnt/.snapshots
-	mkdir /mnt/root
-	mkdir /mnt/srv
-	mkdir /mnt/tmp
-	mkdir -p /mnt/usr/local
-	mkdir -p /mnt/var/cache
-	mkdir /mnt/var/log
-	mkdir /mnt/var/spool
-	mkdir /mnt/var/tmp
-	mkdir /mnt/boot
-	mkdir /mnt/home
+	mkdir /install/.snapshots
+	mkdir /install/root
+	mkdir /install/srv
+	mkdir /install/tmp
+	mkdir -p /install/usr/local
+	mkdir -p /install/var/cache
+	mkdir /install/var/log
+	mkdir /install/var/spool
+	mkdir /install/var/tmp
+	mkdir /install/boot
+	mkdir /install/home
 
 
 # mount subvolumes and partition
 
-    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/.snapshots /mnt/.snapshots
-    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/root /mnt/root
-    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/srv /mnt/srv
-    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/tmp /mnt/tmp
-    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/usr/local /mnt/usr/local
-    mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/cache /mnt/var/cache
-    mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/log,nodatacow /mnt/var/log
-    mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/spool,nodatacow /mnt/var/spool
-    mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/tmp,nodatacow /mnt/var/tmp
-    mount UUID=${BOOTUUID} /mnt/boot
+    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/.snapshots /install/.snapshots
+    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/root /install/root
+    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/srv /install/srv
+    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/tmp /install/tmp
+    mount UUID=${ROOTUUID} -o noatime,compress=zstd,ssd,commit=120,subvol=@/usr/local /install/usr/local
+    mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/cache /install/var/cache
+    mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/log,nodatacow /install/var/log
+    mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/spool,nodatacow /install/var/spool
+    mount UUID=${ROOTUUID} -o noatime,ssd,commit=120,subvol=@/var/tmp,nodatacow /install/var/tmp
+    mount UUID=${BOOTUUID} /install/boot
     
 
 	
 echo -ne "Done 
-Mount your Home partition in /mnt/home if you have one now and Extract your RootBackup inside /mnt"
+Mount your Home partition in /install/home if you have one now and Extract your RootBackup inside /install"
 
 
