@@ -1,4 +1,4 @@
-#to be run on the phone after booting on it
+#to be run on the device after booting on it
 clear
 lsblk
 read -p "Please enter your Root partition : /dev/" partition2
