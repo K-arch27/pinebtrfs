@@ -2,9 +2,7 @@
 ## Btrfs Root on Pinephone Pro
 
 
-### Arch image ready to be flashed and use can be found in Release (based on danct12 Arch)
-
-Or you can Generate yourself an up-to-date image with this : https://github.com/K-arch27/arch-pine64-build-btrfs
+Arch Image can be found here : https://github.com/K-arch27/arch-pine64-build-btrfs
 
 
 
