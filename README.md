@@ -2,10 +2,13 @@
 ## Btrfs Root on Pinephone Pro
 
 
-### Arch image ready to be flashed and use can be found in Release (based on danct12 Arch image for the PPP)
-You can run phone.sh on the phone itself after booting to automatically install and configure snapper for you
+### Arch image ready to be flashed and use can be found in Release (based on danct12 Arch)
 
-## --- Doing it yourself ---
+Or you can Generate yourself an up-to-date image with this : https://github.com/K-arch27/arch-pine64-build-btrfs
+
+
+
+## --- Doing it yourself for Another distro ---
 
 ```
 This guide assume you have access to a linux pc with a card reader
@@ -77,7 +80,7 @@ so that we are able to boot on a different snapshots if we rollback
 ### --- Step 7 ---
 
 Go inside /mnt/boot/
-figure out how your distro set up Uboot Environnements
+figure out how your distro set up Uboot Environnements (you'll need u-boot-tools)
 and add the following to it : 
 
 rootfstype=btrfs
